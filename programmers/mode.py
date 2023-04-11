@@ -28,7 +28,7 @@ def solution(array):
             while array.count(i) > 0:
                 array.remove(i)
         i += 1
-    i = 0
+   
     if list_icnt.count(max(list_icnt)) != 1: # 최빈값이 여러개면 return -1
         return -1
     else: # 최빈값이 하나라면
@@ -38,6 +38,20 @@ def solution(array):
             else: 
                 a +=1
                 
-# 다른 사람의 코드
+# 다른 사람의 코드(dictionay, set을 사용한 코드)
 
+def solution(array):
+    keys = set(array)
+    dict = {}
+    max_freq = []
+    for key in keys:
+        dict[key] = array.count(key)
+    for key in keys:
+        if dict[key] == max(dict.values()):
+            max_freq.append(key)
+    if len(max_freq) > 1:
+        answer = -1
+    else:
+        answer = max_freq[0]
+    return answer
         
